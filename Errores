@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Código de Descuento - ZYRAX</title>
+  <style>
+    * {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: url('https://res.cloudinary.com/dumrcd2sy/image/upload/v1732652396/hduie9aq6l8lf9zyhyfp.gif') no-repeat center center;
+      background-size: 90%;
+    }
+
+    .wrapper {
+      position: relative;
+      width: 250px;
+      padding: 20px 20px;
+      background: rgba(62, 64, 77, 0.9);
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      backdrop-filter: blur(15px);
+    }
+
+    .wrapper:hover {
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
+    }
+
+    .wrapper h1 {
+      font-size: 1.4em;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .wrapper .input-box {
+      position: relative;
+      width: 100%;
+      margin: 15px 0;
+      border-bottom: 2px solid #fff;
+    }
+
+    .wrapper .input-box input {
+      width: 100%;
+      height: 40px;
+      background: transparent;
+      outline: none;
+      border: none;
+      font-size: 1em;
+      color: #fff;
+      padding: 0 40px 0 5px;
+    }
+
+    .wrapper .input-box label {
+      position: absolute;
+      top: 50%;
+      left: 5px;
+      transform: translateY(-50%);
+      font-size: 1em;
+      color: #fff;
+      pointer-events: none;
+      transition: 0.5s;
+    }
+
+    .wrapper .input-box input:focus ~ label,
+    .wrapper .input-box input:valid ~ label {
+      top: -5px;
+    }
+
+    .wrapper .btn {
+      display: inline-block;
+      width: 100%;
+      height: 45px;
+      background: #fff;
+      outline: none;
+      border: none;
+      border-radius: 40px;
+      text-align: center;
+      line-height: 45px;
+      font-size: 1em;
+      font-weight: 500;
+      color: #000;
+      margin-top: 10px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: #ffffea;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <h1>¿Tienes un Código de Descuento?</h1>
+    <form>
+      <div class="input-box">
+        <input type="text" id="discountCode" required />
+        <label>Ingresa tu código aquí</label>
+      </div>
+
+      <button type="button" class="btn" onclick="validateCode()">Aplicar Código</button>
+    </form>
+
+    <div id="errorMessage" style="color: red; margin-top: 20px; display: none;">
+      El código ingresado no es válido.
+    </div>
+
+    <div id="successMessage" style="color: green; margin-top: 20px; display: none;">
+      El código ingresado es válido.
+    </div>
+  </div>
+
+  <script>
+    function validateCode() {
+      var code = document.getElementById('discountCode').value.trim();
+      if (code === "ZYRAX111") {
+        document.getElementById('successMessage').style.display = "block";
+        document.getElementById('errorMessage').style.display = "none";
+        setTimeout(() => {
+          window.location.href = "https://sites.google.com/iespoblenou.org/codigo-correcto/inicio";
+        }, 1000); // Redirección tras 1 segundo
+      } else {
+        document.getElementById('errorMessage').style.display = "block";
+        document.getElementById('successMessage').style.display = "none";
+        setTimeout(() => {
+          window.location.href = "https://sites.google.com/iespoblenou.org/codigo-no/inicio";
+        }, 1000); // Redirección tras 1 segundo
+      }
+    }
+  </script>
+</body>
+</html>
